@@ -46,6 +46,12 @@ class TestAppendTo(unittest.TestCase):
         r = append_to(mock.sentinel.junk, input_list_copy)
         self.assertIs(r, input_list_copy)
 
+    def test_returns_same_empty_array_it_was_given(self):
+        'The method should modify the input_list in place'
+        input_list = []
+        r = append_to(mock.sentinel.junk, input_list)
+        self.assertIs(r, input_list)
+
     def test_append_value_is_last_entry(self):
         'The value passed should be added to the end of the list.'
         v = mock.sentinel.should_be_last_entry
